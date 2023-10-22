@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
-import com.example.practice1.databinding.FragmentFirstBinding
-class FirstFragment : Fragment() {
+import com.example.practice1.databinding.FragmentThirdBinding
 
-    private var _binding: FragmentFirstBinding? = null
+class ThirdFragment : Fragment() {
 
+    private var _binding: FragmentThirdBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -19,27 +19,28 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentThirdBinding.inflate(inflater, container, false)
         return binding.root
 
     }
 
-    companion object{
-        @JvmStatic
-        fun newInstance() = FirstFragment()
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val button3: Button = requireActivity().findViewById(R.id.personal_button)
         val button2: Button = requireActivity().findViewById(R.id.basket_button)
-        button3.setOnClickListener{
-            findNavController().navigate(R.id.action_FirstFragment_to_ThirdFragment)
-        }
+        val button1: Button = requireActivity().findViewById(R.id.shop_button)
         button2.setOnClickListener{
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_ThirdFragment_to_SecondFragment)
+        }
+        button1.setOnClickListener{
+            findNavController().navigate(R.id.action_ThirdFragment_to_FirstFragment)
         }
     }
+
+    companion object{
+        @JvmStatic
+        fun newInstance() = ThirdFragment()
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

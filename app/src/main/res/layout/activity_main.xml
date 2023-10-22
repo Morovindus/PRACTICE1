@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:theme="@android:style/Theme.Black.NoTitleBar"
     android:orientation="vertical">
@@ -13,8 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:name="com.example.practice1.FirstFragment"
-        tools:layout="@layout/content_main">
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph">
     </androidx.fragment.app.FragmentContainerView>
 
     <LinearLayout
@@ -25,7 +27,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/create_button"
+            android:id="@+id/shop_button"
             android:layout_width="140dp"
             android:layout_height="50dp"
             android:layout_marginRight="10dp"
@@ -34,7 +36,7 @@
             android:textSize="15sp"/>
 
         <Button
-            android:id="@+id/deleteButton"
+            android:id="@+id/basket_button"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="Корзина"
@@ -42,14 +44,11 @@
             android:textSize="15sp"/>
 
         <Button
-            android:id="@+id/Button"
+            android:id="@+id/personal_button"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="Личный кабинет"
             android:textColor="@color/white"
             android:textSize="15sp"/>
     </LinearLayout>
-
-
-
 </LinearLayout>
